@@ -14,10 +14,10 @@ char **split_line(char *line)
 			count++;
 		idx++;
 	}
-	tokenarr = malloc(sizeof(char *) * count);
+	tokenarr = malloc(sizeof(char *) * (count + 2));
 	idx = 0;
 	token = strtok(line, delim);
-	while (tokenarr[idx] != NULL)
+	while (token)
 	{
 		tokenarr[idx] = token;
 		token = strtok(NULL, delim);
