@@ -1,14 +1,14 @@
-#include <unistd.h>
-#include <stdio.h>
+#include "sash.h"
 
-int execute_executables(char **tokenarr) /* execute command with args */
+int _execute(char **tokenarr) /* execute command with args */
 {
 	int status = 0;
 	pid_t pid_id, wpid;
+
 	pid_id = fork(); /* create child process */
 	if (pid_id == 0) /* if child process is created execute */
 	{
-		if (execve(buf_line[0], buf_line, environ) == -1)
+		if (execve(tokenarr[0], tokenarr, NULL) == -1)
 			perror("sash");/* tell error is from our program */
 		exit(EXIT_FAILURE); /* tell our program failed */
 	}
@@ -18,6 +18,8 @@ int execute_executables(char **tokenarr) /* execute command with args */
 	{
 		do {
 			wpid = waitpid(pid_id, &status, WUNTRACED);
+			if (wpid == -1)
+				exit(EXIT_FAILURE);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	return (0);
