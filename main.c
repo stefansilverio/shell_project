@@ -13,9 +13,10 @@ int main(void)
 
 	while (1)
 	{
-		printf("$ ");
+		write(STDOUT_FILENO, "$ ", 2);
 		line = read_line();
 		commands = split_line(line);
+		_execute(commands);
 	}
 	free(line);
 	free(commands);
