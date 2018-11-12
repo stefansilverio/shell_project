@@ -10,8 +10,11 @@ char *read_line()
 {
 	char *str = NULL;
 	ssize_t size = 0;
+	int length = 0;
 
-	getline(&str, &size, stdin);
+	length = getline(&str, &size, stdin);
+	if (str[length - 1] == '\n')
+		str[length - 1] = '\0';
 
 	return(str);
 }
