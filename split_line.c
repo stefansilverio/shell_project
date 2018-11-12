@@ -2,21 +2,26 @@
 
 char **split_line(char *line)
 {
-	int index = 0, length;
+	int idx = 0;
+	int count = 0;
 	char *token;
-	char **tokenarr;
 	char *delim = " ";
+	char **tokenarr;
 
+	while (line[idx])
+	{
+		if (line[idx] == ' ')
+			count++;
+		idx++;
+	}
+	tokenarr = malloc(sizeof(char *) * (count + 2));
+	idx = 0;
 	token = strtok(line, delim);
-
 	while (token)
 	{
-		for (length = 0; token[length]; length++)
-			;
-		tokenarr = malloc((length + 1) * sizeof(char));
-		tokenarr[index] = token;
+		tokenarr[idx] = token;
 		token = strtok(NULL, delim);
-		index++;
+		idx++;
 	}
-	return(tokenarr);
+	return (tokenarr);
 }
