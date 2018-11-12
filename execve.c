@@ -2,7 +2,7 @@
 
 int _execute(char **tokenarr) /* execute command with args */
 {
-	int status = 0;
+	int status;
 	pid_t pid_id, wpid;
 
 	pid_id = fork(); /* create child process */
@@ -20,7 +20,7 @@ int _execute(char **tokenarr) /* execute command with args */
 			wpid = waitpid(pid_id, &status, WUNTRACED);
 			if (wpid == -1)
 				exit(EXIT_FAILURE);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+				} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	return (0);
 }
