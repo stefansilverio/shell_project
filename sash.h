@@ -1,5 +1,5 @@
-#ifndef __SASH.H__
-#define __SASH.H__
+#ifndef __SASH__
+#define __SASH__
 
 #include <stdio.h>
 #include <stdlib.h>
