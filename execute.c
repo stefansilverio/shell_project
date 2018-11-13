@@ -1,5 +1,12 @@
 #include "sash.h"
 
+/**
+ * _execute - execute each argument stored in tokenarr
+ *
+ * @tokenarr: array of char pointers
+ *
+ * Return: Exit status
+ */
 int _execute(char **tokenarr) /* execute command with args */
 {
 	int status;
