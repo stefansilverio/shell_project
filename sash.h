@@ -11,5 +11,6 @@
 char *read_line();
 char **split_line(char *line);
 int _execute(char **tokenarr);
+void sash_exit(int status);
 
 #endif
