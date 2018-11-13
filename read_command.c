@@ -1,7 +1,7 @@
 #include "sash.h"
 
 /**
- * read_line - Reads a line given to the standard input and stores it in a buffer
+ * read_line - Reads a line given to the standard input & stores it in a buffer
  *
  * Return: A pointer to the stored string
  */
@@ -16,5 +16,5 @@ char *read_line()
 	if (str[length - 1] == '\n')
 		str[length - 1] = '\0';
 
-	return(str);
+	return (str);
 }
