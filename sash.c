@@ -11,7 +11,7 @@ int main(void)
 	char *line;
 	char **commands;
 
-/*	signal(SIGINT, SIG_IGN); /* Ignores Ctrl+C signal to quit shell */ /* todo - UNCOMMENT OUT WHEN CTRL+D/exit is figured out */
+	signal(SIGINT, SIG_IGN);  /* Ignores Ctrl+C signal to quit shell */
 
 	while (1)
 	{
