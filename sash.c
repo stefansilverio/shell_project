@@ -18,7 +18,8 @@ int main(void)
 		write(STDOUT_FILENO, "$ ", 2); /* Write command prompt to stdout */
 		line = read_line(); /* Stores command written in line */
 		commands = split_line(line); /* Parses the line into individual words */
-		_execute(commands); /* Executes the commands given */
+		if (run_builtin(commands) == -1)
+			_execute(commands); /* Executes the commands given */
 	}
 	free(line);
 	free(commands);
