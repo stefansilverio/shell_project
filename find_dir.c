@@ -33,6 +33,7 @@ char **tokenize_path(char *path)
  */
 char *find_dir(char **buf_dir, char *command)
 {
+	char *command = tokenarr[0]; /* usrs command */
 	char *buffer = NULL /* store dir and concatenated str */
 	int chr_cnt =  0; /* chrs in path dir */
 	int cmd_len = 0; /* len of command usr enters */
@@ -48,7 +49,6 @@ char *find_dir(char **buf_dir, char *command)
 		buf_idx = 0;
 		while (buf_dir[curr_dir] + chr_cnt != '\0')
 			chr_cnt++; /* get length of next dir */
-
 		while (command[cmd_len] != '\0')
 			cmd_len++; /* len of tokenarr[0] */
 		buf_size = cmd_len + chr_cnt;
@@ -65,7 +65,6 @@ char *find_dir(char **buf_dir, char *command)
 			buffer[b_idx] = command[cmd_len];
 			cmd_len++; /* len of tokenarr[0] */
 		}
-
 		if (stat(buffer) == 0)
 			return (buffer);
 	}
