@@ -47,26 +47,20 @@ char *find_dir(char **buf_dir)
 		cmd_len = 0;
 		chr_cnt = 0;
 		buf_idx = 0;
-
 		while (buf_dir[curr_dir] + chr_cnt != '\0')
 			chr_cnt++; /* get length of next dir */
 
 		while (command[cmd_len] != '\0')
 			cmd_len++; /* len of tokenarr[0] */
-
 		buf_size = cmd_len + chr_cnt;
-
 		buffer = malloc((sizeof(char)) * (buf_size));
-
 		cmd_len = 0;
 		chr_cnt = 0;
-
 		while (buf_dir[buf_dir] + chr_cnt != '\0')
 		{
 			buffer[b_idx] = buf_dir[curr_dir] + chr_cnt;
 			chr_cnt++; /* get length of next dir */
 		}
-
 		while (command[cmd_len] != '\0')
 		{
 			buffer[b_idx] = command[cmd_len];
