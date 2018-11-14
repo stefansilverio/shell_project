@@ -78,6 +78,7 @@ char *find_dir(char **buf_dir, char *command)
 		}
 		if (stat(buffer, &buff) == 0)
 			return (buffer);
+		dir_idx++;
 	}
 	return (0);
 }
