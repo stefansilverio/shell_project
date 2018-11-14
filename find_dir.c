@@ -33,19 +33,20 @@ char **tokenize_path(char *path)
  */
 char *find_dir(char **buf_dir, char *command)
 {
-	char *buffer = NULL /* store dir and concatenated str */
+	char *buffer = NULL; /* store dir and concatenated str */
 	int chr_cnt =  0; /* chrs in path dir */
 	int cmd_len = 0; /* len of command usr enters */
 	int buf_size = 0; /* space you need allocated */
 	int curr_dir = 0; /* position in buf_dir */
 	int b_idx = 0; /* position in b_index */
-	int status;
+	int dir_idx = 0;
+	int buf_idx = 0;
+	struct stat buff;
 
 	while (buf_dir[dir_idx] != NULL)
 	{
 		cmd_len = 0;
 		chr_cnt = 0;
-		buf_idx = 0;
 
 		while (buf_dir[curr_dir] + chr_cnt != '\0')
 			chr_cnt++; /* get length of next dir */
@@ -60,9 +61,9 @@ char *find_dir(char **buf_dir, char *command)
 		cmd_len = 0;
 		chr_cnt = 0;
 
-		while (buf_dir[buf_dir] + chr_cnt != '\0')
+		while (buf_dir[buf_idx] + chr_cnt != '\0')
 		{
-			buffer[b_idx] = buf_dir[curr_dir] + chr_cnt;
+			buffer[b_idx] = buf_dir[curr_dir + chr_cnt];
 			chr_cnt++; /* get length of next dir */
 		}
 
@@ -72,7 +73,7 @@ char *find_dir(char **buf_dir, char *command)
 			cmd_len++; /* len of tokenarr[0] */
 		}
 
-		if (stat(buffer) == 0)
+		if (stat(buffer, &buff) == 0)
 			return (buffer);
 	}
 	return (0);

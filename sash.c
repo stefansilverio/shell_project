@@ -10,6 +10,7 @@ int main(void)
 {
 	char *line, *path, *dir;
 	char **commands, **dirs;
+	struct stat buffer;
 
 	signal(SIGINT, SIG_IGN);  /* Ignores Ctrl+C signal to quit shell */
 
@@ -20,10 +21,10 @@ int main(void)
 		commands = split_line(line); /* Parses the line into individual words */
 		if (run_builtin(commands) == -1) /* Looks for builtin */
 		{
-			if (stat(commands[0] != 0))
+			if (stat(commands[0], &buffer) != 0)
 			{
 			    path = get_path(environ);
-			    dirs = tokenize_path(path, commands);
+			    dirs = tokenize_path(path);
 			    dir = find_dir(dirs, commands[0]);
 			    commands[0] = dir;
 			}
