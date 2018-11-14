@@ -5,7 +5,6 @@
  *
  * Return: A pointer to the stored string
  */
-
 char *read_line()
 {
 	char *str = NULL;
@@ -14,7 +13,10 @@ char *read_line()
 
 	length = getline(&str, &size, stdin);
 	if ((int)length == -1)
+	{
+		write(1, "I'm leaving...connection closed\n", 32);
 		exit(0);
+	}
 	if (str[length - 1] == '\n')
 		str[length - 1] = '\0';
 
