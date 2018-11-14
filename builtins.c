@@ -8,14 +8,14 @@ int run_builtin(char **tokenarr)
 {
 	int index = 0;
 	builtin_t cmds[] = {
-		{"exit", exit_sash}, {NULL, NULL}
+		{"exit", exit_sash}, {"env", _env}, {NULL, NULL}
 	};
 
-	while (index < 1)
+	while (cmds[index].cmd)
 	{
 		if (str_cmp(tokenarr[0], cmds[index].cmd) == 0)
 		{
-			cmds[index].func(tokenarr);
+			cmds[index].func();
 			return (0);
 		}
 		index++;

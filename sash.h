@@ -21,11 +21,12 @@ extern char **environ;
 char *read_line();
 char **split_line(char *line);
 int _execute(char **tokenarr);
-int exit_sash(char **tokenarr);
+int exit_sash();
 int str_cmp(char *s1, char *s2);
 int run_builtin(char **tokenarr);
 char **tokenize_path(char *path);
 char *find_dir(char **buf_dir, char *command);
 char *get_path(char **environ);
+int _env(void);
 
 #endif

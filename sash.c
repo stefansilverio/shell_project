@@ -23,10 +23,10 @@ int main(void)
 		{
 			if (stat(commands[0], &buffer) != 0)
 			{
-			    path = get_path(environ);
-			    dirs = tokenize_path(path);
-			    dir = find_dir(dirs, commands[0]);
-			    commands[0] = dir;
+				path = get_path(environ);
+				dirs = tokenize_path(path);
+				dir = find_dir(dirs, commands[0]);
+				commands[0] = dir;
 			}
 			_execute(commands); /* Executes the commands given */
 		}
