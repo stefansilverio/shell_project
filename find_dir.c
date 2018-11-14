@@ -1,7 +1,7 @@
 #include "sash.h"
 
 
-char **tokenize_path(char *path, char **tokenarr)
+char **tokenize_path(char *path)
 {
 	char *token;
 	char *delim = ":";
@@ -11,7 +11,7 @@ char **tokenize_path(char *path, char **tokenarr)
 
 	while(path[idx])
 	{
-		if (path[idx] = ":")
+		if (path[idx] == delim)
 			count++;
 		idx++;
 	}
@@ -31,9 +31,8 @@ char **tokenize_path(char *path, char **tokenarr)
  * find_dir - check the usrs path for executable
   * Return: the dir where the executable is stored
  */
-char *find_dir(char **buf_dir)
+char *find_dir(char **buf_dir, char *command)
 {
-	char *command = tokenarr[0]; /* usrs command */
 	char *buffer = NULL /* store dir and concatenated str */
 	int chr_cnt =  0; /* chrs in path dir */
 	int cmd_len = 0; /* len of command usr enters */
@@ -42,7 +41,7 @@ char *find_dir(char **buf_dir)
 	int b_idx = 0; /* position in b_index */
 	int status;
 
-	while (buff_dir[dir_idx] != NULL)
+	while (buf_dir[dir_idx] != NULL)
 	{
 		cmd_len = 0;
 		chr_cnt = 0;
