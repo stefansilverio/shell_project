@@ -8,8 +8,8 @@
 
 int main(void)
 {
-	char *line;
-	char **commands;
+	char *line, *path, *dir;
+	char **commands, **dirs;
 
 	signal(SIGINT, SIG_IGN);  /* Ignores Ctrl+C signal to quit shell */
 
@@ -18,8 +18,17 @@ int main(void)
 		write(STDOUT_FILENO, "$ ", 2); /* Write command prompt to stdout */
 		line = read_line(); /* Stores command written in line */
 		commands = split_line(line); /* Parses the line into individual words */
-		if (run_builtin(commands) == -1)
+		if (run_builtin(commands) == -1) /* Looks for builtin */
+		{
+			if (stat(commands[0] != 0))
+			{
+			    path = get_path(environ);
+			    dirs = tokenize_path(path, commands);
+			    dir = find_dir(dirs, commands[0]);
+			    commands[0] = dir;
+			}
 			_execute(commands); /* Executes the commands given */
+		}
 	}
 	free(line);
 	free(commands);
