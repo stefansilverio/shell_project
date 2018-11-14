@@ -1,14 +1,14 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "sash.h"
 
-extern char **environ;
 
 char *get_path(char **environ)
 {
 	int key_idx = 0;
 	int b_idx = 0;
-	int env_value = 0;
+	int env_value = 5;
 	char *buffer = NULL;
 
 	buffer = malloc(sizeof(char) * (1024)); /* buffer size is arbitrary */
