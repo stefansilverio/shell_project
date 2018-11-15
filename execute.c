@@ -16,11 +16,11 @@ int _execute(char **tokenarr) /* execute command with args */
 	if (pid_id == 0) /* if child process is created execute */
 	{
 		if (execve(tokenarr[0], tokenarr, NULL) == -1)
-			perror("sash");/* tell error is from our program */
+			perror("./sash: 1");/* tell error is from our program */
 		exit(EXIT_FAILURE); /* tell our program failed */
 	}
 	else if (pid_id < 0)/* couldn't create child process */
-		perror("sash");
+		perror("./sash: 1");
 	else /* parent process get pid of child - will land here */
 	{
 		do {

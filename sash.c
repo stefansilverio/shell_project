@@ -30,8 +30,10 @@ int main(void)
 			}
 			_execute(commands); /* Executes the commands given */
 		}
+		free(dir);
+		free(path);
+		free(line);
+		free(commands);
 	}
-	free(line);
-	free(commands);
 	return (0);
 }
