@@ -12,9 +12,9 @@ char **split_line(char *line)
 {
 	int idx = 0;
 	int count = 0;
-	char *token;
+	char *token = NULL;
 	char *delim = " ";
-	char **tokenarr;
+	char **tokenarr = NULL;
 
 	while (line[idx])
 	{
@@ -22,7 +22,12 @@ char **split_line(char *line)
 			count++;
 		idx++;
 	}
-	tokenarr = malloc(sizeof(char *) * (count + 1));
+	tokenarr = malloc(sizeof(*tokenarr) * (count + 2));
+	if (tokenarr == NULL)
+	{
+		free(line);
+		return(NULL);
+	}
 	idx = 0;
 	token = strtok(line, delim);
 	while (token)
@@ -31,5 +36,6 @@ char **split_line(char *line)
 		token = strtok(NULL, delim);
 		idx++;
 	}
+	tokenarr[idx] = NULL;
 	return (tokenarr);
 }
