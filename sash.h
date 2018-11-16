@@ -28,5 +28,7 @@ char **tokenize_path(char *path);
 char *find_dir(char **buf_dir, char *command);
 char *get_path(char **environ);
 int _env(void);
+int doubleptr_len(char **buf_dir, int dir_idx);
+int str_len(char *command);
 
 #endif
