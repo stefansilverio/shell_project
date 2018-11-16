@@ -14,10 +14,7 @@ int run_builtin(char **tokenarr)
 	while (cmds[index].cmd)
 	{
 		if (str_cmp(tokenarr[0], cmds[index].cmd) == 0)
-		{
-			cmds[index].func();
-			return (0);
-		}
+			return(cmds[index].func());
 		index++;
 	}
 	return (-1);
