@@ -12,13 +12,20 @@ char *read_line()
 	size_t length = 0;
 
 	length = getline(&str, &size, stdin);
-	if ((int)length == -1)
+	if ((str == NULL) || (length < 2))
 	{
-		write(1, "I'm leaving...connection closed\n", 32);
+		free(str);
+		return (NULL);
+	}
+	if (length >= 2)
+	{
+		if (str[length - 1] == '\n')
+			str[length - 1] = '\0';
+	}	
+	if ((int)length == EOF)
+	{
+		write(1, "Bye bye\n", 8);
 		exit(0);
 	}
-	if (str[length - 1] == '\n')
-		str[length - 1] = '\0';
-
 	return (str);
 }
