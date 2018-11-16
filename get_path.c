@@ -1,6 +1,3 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "sash.h"
 
 
@@ -12,9 +9,8 @@ char *get_path(char **environ)
 	char *buffer = NULL;
 
 	buffer = malloc(sizeof(char) * (1024)); /* buffer size is arbitrary */
-
 	if (buffer == NULL)
-		exit(0);
+		return (NULL);
 
 	while ((*(environ[key_idx]) != 'P') && (*(environ[key_idx] + 3) != 'H'))
 		key_idx++; /* find right key */
