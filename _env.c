@@ -15,5 +15,5 @@ int _env(void)
 		write(1, &c, 1);
 		key++;
 	}
-	return (0);
+	return (1);
 }
