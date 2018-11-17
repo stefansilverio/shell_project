@@ -30,5 +30,6 @@ char *get_path(char **environ);
 int _env(void);
 int doubleptr_len(char **buf_dir, int dir_idx);
 int str_len(char *command);
+int _chdir(char **commands);
 
 #endif
