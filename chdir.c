@@ -23,6 +23,6 @@ int _chdir(char **commands)
 		status = chdir(commands[1]);
 		if (status == -1)
 			perror("cd");
-		return (status);
+		return (1);
 	}
 }
