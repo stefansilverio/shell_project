@@ -13,7 +13,7 @@ char **split_line(char *line)
 	int idx = 0;
 	int count = 0;
 	char *token = NULL;
-	char *delim = " ";
+	char delim[2] = {' ', ';'};
 	char **tokenarr = NULL;
 
 	while (line[idx])
