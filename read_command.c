@@ -26,6 +26,5 @@ char *read_line()
 		return (str);
 	}
 	free(str);
-	write(1, "Bye bye\n", 9);
 	_exit(0);
 }
