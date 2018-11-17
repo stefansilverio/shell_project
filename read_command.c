@@ -9,23 +9,23 @@ char *read_line()
 {
 	char *str = NULL;
 	size_t size = 0;
-	size_t length = 0;
+	ssize_t length = 0;
 
-	length = getline(&str, &size, stdin);
-	if ((str == NULL) || (length < 2))
+	while ((length = getline(&str, &size, stdin)) != EOF)
 	{
-		free(str);
-		return (NULL);
+		if ((str == NULL) || (length < 2))
+		{
+			free(str);
+			return (NULL);
+		}
+		if (length >= 2)
+		{
+			if (str[length - 1] == '\n')
+				str[length - 1] = '\0';
+		}
+		return (str);
 	}
-	if (length >= 2)
-	{
-		if (str[length - 1] == '\n')
-			str[length - 1] = '\0';
-	}	
-	if ((int)length == EOF)
-	{
-		write(1, "Bye bye\n", 8);
-		exit(0);
-	}
-	return (str);
+	free(str);
+	write(1, "Bye bye\n", 9);
+	_exit(0);
 }
