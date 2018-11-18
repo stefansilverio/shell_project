@@ -15,7 +15,6 @@ int run_builtin(char **tokenarr)
 	{
 		if (str_cmp(tokenarr[0], cmds[index].cmd) == 0)
 		{
-			printf("%c\n", cmds[2].cmd[1]);
 			if (cmds[2].cmd[1] == 'd')
 				return(cmds[index].func(tokenarr));
 			return(cmds[index].func());
