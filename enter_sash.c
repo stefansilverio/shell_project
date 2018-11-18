@@ -13,7 +13,6 @@ int enter_sash(int ac, char **av, char **env)
 	int status = 1;
 	struct stat buffer;
 
-	(void) **av;
 	(void) ac;
 
 	signal(SIGINT, sighandler);  /* Ignores Ctrl+C signal to quit shell */
@@ -24,7 +23,7 @@ int enter_sash(int ac, char **av, char **env)
 		line = read_line(); /* Stores command written in line */
 		if (line == NULL)
 			continue;
-		commands = split_line(line);
+		commands = split_line(line, av);
 		status = run_builtin(commands);
 		if (status == -1)
 		{
@@ -35,7 +34,8 @@ int enter_sash(int ac, char **av, char **env)
 				dir = find_dir(dirs, commands[0]);
 				commands[0] = dir;
 			}
-			_execute(commands);
+			_execute(commands[0], commands, env);
+			
 		}
 	}
 	return (0);
