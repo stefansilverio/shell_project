@@ -26,5 +26,7 @@ char *read_line()
 		return (str);
 	}
 	free(str);
+	if (isatty(STDIN_FILENO))
+	    printf("logout\n");
 	_exit(0);
 }
