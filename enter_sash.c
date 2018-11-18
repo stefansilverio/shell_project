@@ -6,7 +6,7 @@
  * Return: Always 0
  */
 
-int enter_sash(int ac, char **av)
+int enter_sash(int ac, char **av, char **env)
 {
 	char *line = NULL, *path = NULL, *dir = NULL;
 	char **commands = NULL, **dirs = NULL;
@@ -30,7 +30,7 @@ int enter_sash(int ac, char **av)
 		{
 			if (stat(commands[0], &buffer) != 0)
 			{
-				path = get_path(environ);
+				path = get_path(env);
 				dirs = tokenize_path(path);
 				dir = find_dir(dirs, commands[0]);
 				commands[0] = dir;
