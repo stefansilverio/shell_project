@@ -9,10 +9,9 @@ int enter_nonsash(int ac, char **av, char **env)
 	char *prev = NULL, *buff = NULL;
 
 	(void)ac;
-	(void)**av;
 
-	prev = getcwd(buff, 1024);
-
+	prev = getcwd(buff, 0);
+	
 	while (status)
 	{
 		line = read_line();
@@ -22,15 +21,18 @@ int enter_nonsash(int ac, char **av, char **env)
 		status = run_builtin(commands);
 		if (status == -1)
 		{
-			chdir("..");
-			if (stat(commands[0], &buffer) != 0)
+			if (!str_chr(commands[0], '/'))
 			{
-				path = get_path(env);
-				dirs = tokenize_path(path);
-				dir = find_dir(dirs, commands[0]);
-				commands[0] = dir;
+				if (stat(commands[0], &buffer) != 0)
+				{
+					chdir("/home/vagrant");
+					path = get_path(env);
+					dirs = tokenize_path(path);
+					dir = find_dir(dirs, commands[0]);
+					commands[0] = dir;
+					chdir(prev);
+				}
 			}
-			chdir(prev);
 			_execute(commands[0], commands, env);
 		}
 		free(commands);
