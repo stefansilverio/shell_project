@@ -1,5 +1,5 @@
 #include "sash.h"
-
+#include <signal.h>
 /**
  * main - the driver function for our sash shell
  *
@@ -15,14 +15,15 @@ int enter_sash(int ac, char **av)
 
 	(void) **av;
 	(void) ac;
-		
 
-	signal(SIGINT, SIG_IGN);  /* Ignores Ctrl+C signal to quit shell */
+	signal(SIGINT, sighandler);  /* Ignores Ctrl+C signal to quit shell */
 
 	while (status)
 	{
 		write(STDOUT_FILENO, "$ ", 2); /* Write command prompt to stdout */
 		line = read_line(); /* Stores command written in line */
+		if (line == NULL)
+			continue;
 		commands = split_line(line);
 		status = run_builtin(commands);
 		if (status == -1)
@@ -38,4 +39,10 @@ int enter_sash(int ac, char **av)
 		}
 	}
 	return (0);
+}
+
+void sighandler()
+{
+	write(1, "\n", 1);
+	write(1, "$ ", 2);
 }
