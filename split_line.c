@@ -8,13 +8,12 @@
  * Return: A pointer to an array of strings/tokens split up by the function
  */
 
-char **split_line(char *line)
+char **split_line(char *line, char **av)
 {
 	int idx = 0;
 	int count = 0;
 	char *token = NULL;
 	char delim[2] = {' ', ';'};
-	char **tokenarr = NULL;
 
 	while (line[idx])
 	{
@@ -22,8 +21,8 @@ char **split_line(char *line)
 			count++;
 		idx++;
 	}
-	tokenarr = malloc(sizeof(*tokenarr) * (count + 2));
-	if (tokenarr == NULL)
+	av = malloc(sizeof(*av) * (count + 2));
+	if (av == NULL)
 	{
 		free(line);
 		return(NULL);
@@ -32,10 +31,10 @@ char **split_line(char *line)
 	token = strtok(line, delim);
 	while (token)
 	{
-		tokenarr[idx] = token;
+		av[idx] = token;
 		token = strtok(NULL, delim);
 		idx++;
 	}
-	tokenarr[idx] = NULL;
-	return (tokenarr);
+	av[idx] = NULL;
+	return (av);
 }

@@ -7,7 +7,7 @@
  *
  * Return: Exit status
  */
-int _execute(char **tokenarr) /* execute command with args */
+int _execute(char *dir, char **tokenarr, char **env) /* execute command with args */
 {
 	int status;
 	pid_t pid_id, wpid;
@@ -15,7 +15,7 @@ int _execute(char **tokenarr) /* execute command with args */
 	pid_id = fork(); /* create child process */
 	if (pid_id == 0) /* if child process is created execute */
 	{
-		if (execve(tokenarr[0], tokenarr, NULL) == -1)
+		if (execve(dir, tokenarr, env) == -1)
 			perror("./sash: 1");/* tell error is from our program */
 		exit(EXIT_FAILURE); /* tell our program failed */
 	}

@@ -19,14 +19,14 @@ typedef struct builtins
 extern char **environ;
 
 char *read_line();
-char **split_line(char *line);
-int _execute(char **tokenarr);
+char **split_line(char *line, char **av);
+int _execute(char *dir, char **tokenarr, char **env);
 int exit_sash();
 int str_cmp(char *s1, char *s2);
 int run_builtin(char **tokenarr);
 char **tokenize_path(char *path);
 char *find_dir(char **buf_dir, char *command);
-char *get_path(char **environ);
+char *get_path(char **env);
 int _env(void);
 int doubleptr_len(char **buf_dir, int dir_idx);
 int str_len(char *command);
