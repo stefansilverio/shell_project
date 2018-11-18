@@ -31,7 +31,8 @@ int _env(void);
 int doubleptr_len(char **buf_dir, int dir_idx);
 int str_len(char *command);
 int _chdir(char **commands);
-int enter_nonsash(int ac, char **av);
-int enter_sash(int ac, char **av);
+int enter_nonsash(int ac, char **av, char **env);
+int enter_sash(int ac, char **av, char **env);
+void sighandler();
 
 #endif
