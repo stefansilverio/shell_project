@@ -1,5 +1,11 @@
 #include "sash.h"
 
+/**
+ * get_path - Get the PATH environmental variable and store it in a pointer
+ * @env: The environment to get the PATH from
+ *
+ * Return: A pointer to the buffer containing the variable
+ */
 
 char *get_path(char **env)
 {
