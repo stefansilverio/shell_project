@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <dirent.h>
 
 typedef struct builtins
 {
@@ -34,5 +35,7 @@ int _chdir(char **commands);
 int enter_nonsash(int ac, char **av, char **env);
 int enter_sash(int ac, char **av, char **env);
 void sighandler();
+char *str_chr(char *s, char c);
+char *str_cat(char *dest, char *src);
 
 #endif
