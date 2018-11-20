@@ -33,13 +33,7 @@ char *find_dir(char **buf_dir, char *command)
 		}
 		buffer[b_idx] = '/';
 		b_idx++;
-		cmd_len = 0;
-		while (command[cmd_len] != '\0')
-		{
-			buffer[b_idx] = command[cmd_len];
-			b_idx++;
-			cmd_len++; /* len of tokenarr[0] */
-		}
+		str_cat(buffer, command);
 		if (stat(buffer, &buff) == 0)
 			return (buffer);
 		dir_idx++;
