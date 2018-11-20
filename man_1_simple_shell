@@ -2,21 +2,21 @@
 .\" Contact stefansilverio@gmail.com to correct errors or typos.
 .TH man 1 "16 November 2018" "1.0" "simple_shell man page"
 .SH NAME
-simple_shell - simple command interpreter (sash)
+simple_shell - simple command interpreter (SASH)
 .SH SYNOPSIS
 #include "sash.h"
 .br
 
 .SH DESCRIPTION
-The simple_shell program processes: file paths, executables located in the users PATH variable, and basic built-in commands. The program, simple_shell, writes output to stdout and errors to stderr. This man page is not intended to be a tutorial or a complete specification of the shell.
+The simple_shell program processes: file paths, executables located in the users PATH variable, and basic built-in commands (exit, env, cd). The program, simple_shell, writes output to stdout and errors to stderr. This man page is not intended to be a tutorial or a complete specification of the shell.
 
 .SH OVERVIEW
-The simple_shell is a command that reads lines from the terminal, interprets them, and generally executes other commands.
+The simple_shell is a command that reads lines from the terminal, interprets them, and generally executes other commands. It will run using the users current environment.
 
 .SS Invocation
-An "interactive" shell reads commands from a user input. When a shell is in interactive mode, it displays a prompt and runs a process after the user types enter. When a shell is running a script it is said to be in non-interactive mode. That said, the user can emulate interactive mode by running a script that takes input from a user. Simple_shell (sash) runs in both interactive and non-interactive modes.
+An "interactive" shell reads commands from a user input. When the shell is in interactive mode, it displays a prompt and runs a process after the user types enter. After the process terminates, the prompt will display again on the next line and the user may begin another process. When the shell is running a script it's said to be in non-interactive mode. That said, the user can emulate interactive mode by running a script that takes input from a user. Simple_shell (sash) runs in both interactive and non-interactive modes.
 
-.SS Example
+.SS Example 1
 .br
 ./test
 .br
@@ -35,12 +35,22 @@ please enter your name:
 tiger
 .br
 Hello, tiger
+.SS Example 2
+.br
+ls
+.br
+Output: display all files in users cwd
+.SS Example 3
+.br
+exit
+.br
+Output: terminate processes and exit SASH
 
 .SS Commands
 The shell interprets the words it reads according to a language, the specification of which is outside the scope of this man page (refer to the BNF in the POSIX 1003.2 document). Essentially though, a line is read and the first word of the line is processed. The input will either be processed as an executable, a built-in function, or an error message will be sent to stdout.
 
 .SS Path Search
- When locating a command, the shell first looks to see if it has a shell function by that name. It does this by searching through each directory provided in the users PATH variable. If no executable is found, the shell looks for a builtin command by that name. If a builtin command is not found, and error message is printed and the user is prompted to enter another command.
+ When locating a command, the SASH shell first looks to see if it has a built-in function by that name. It does this by searching for a builtin command by that name. If no built-in is found, SASH searches through each directory provided in the users PATH variable. If no executable is found, an error message is printed and the user is prompted to enter another command.
 
 .SS Builtins
 This section lists the builtin commands which are builtin because they need to perform some operation that can't be performed by a separate process.
@@ -49,11 +59,11 @@ cd [directory]
 .br
 Switch to the specified directory.
 .br
-Exit
+exit
 .br
 Leave current shell process.
 .br
-Env
+env
 .br
 Display your current environment.
 .br
@@ -63,8 +73,6 @@ Errors that are detected by the shell, such as a syntax error, will cause the sh
 
 .SH SEE ALSO
 sh(1)
-.br
-
 .SH HISTORY
 SASH was developed in 5 minutes with no errors or memory leaks.
 .SH BUGS
