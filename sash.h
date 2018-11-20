@@ -25,7 +25,7 @@ typedef struct builtins
 } builtin_t;
 
 /**
- * struct block_s - free single pointers
+ * struct blocks_s - free single pointers
  * @memory: pointer to allocated memory
  * @next: pointer to next node
  *
@@ -38,7 +38,7 @@ typedef struct blocks_s
 } blocks_s;
 
 /**
- * struct my_struct - free double pointers
+ * struct blocks_d - free double pointers
  * @memory: pointer to allocated memory
  * @next: pointer to next node
  *
@@ -70,7 +70,7 @@ int exit_sash(void);
 int enter_nonsash(int ac, char **av, char **env);
 int enter_sash(int ac, char **av, char **env);
 
-void sighandler();
+void sighandler(int);
 
 /*string manipulation functions */
 int doubleptr_len(char **buf_dir, int dir_idx);
