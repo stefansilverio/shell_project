@@ -8,12 +8,12 @@ void frees_d(blocks_d *head)
 
 	while (head)
 	{
-		while (memory[idx] != NULL)
+		while (head->memory[idx])
 		{
 			free(memory[idx]);
-			puts("hi");
 			idx++;
 		}
+		head++;
 		tmp = head;
 		head = head->next;
 		free(tmp->memory);
