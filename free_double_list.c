@@ -1,5 +1,10 @@
 #include "sash.h"
 
+/**
+ * free_d - free all double ptrs
+ * @head: next node in list
+ * Return: Nothing
+ */
 void frees_d(blocks_d *head)
 {
 	char **memory = head->memory;
