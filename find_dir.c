@@ -23,7 +23,8 @@ char *find_dir(char **buf_dir, char *command)
 		chr_cnt = str_len(command);
 		buf_size = cmd_len + chr_cnt;
 
-		buffer = malloc((sizeof(char)) * (buf_size));
+		buffer = _calloc((buf_size), sizeof(char));
+/*		buffer = malloc((sizeof(char)) * (buf_size)); */
 		chr_cnt = 0;
 
 		for (b_idx = 0; buf_dir[dir_idx][chr_cnt] != '\0'; b_idx++)
@@ -33,7 +34,7 @@ char *find_dir(char **buf_dir, char *command)
 		}
 		buffer[b_idx] = '/';
 		b_idx++;
-		str_cat(buffer, command);
+		str_cat(command, buffer);
 		if (stat(buffer, &buff) == 0)
 			return (buffer);
 		dir_idx++;
