@@ -17,7 +17,7 @@ int enter_nonsash(char **av, char **env)
 	int status = 1;
 	struct stat buffer;
 
-	prev = getcwd(buff, 1024);
+	prev = getcwd(buff, 0);
 	while (status)
 	{
 		line = read_line();
@@ -45,8 +45,8 @@ int enter_nonsash(char **av, char **env)
 				}
 				chdir(prev);
 			}
-			_execute(commands[0], commands, env);
-		}
+			_execute(commands[0], commands, env); }
+		free(prev);
 		frees_d(first_node_d);
 		frees_s(first_node_s);
 	}

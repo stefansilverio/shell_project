@@ -48,5 +48,5 @@ char *get_path(char **env)
 			b_idx++;
 		}
 	}
-	return (buffer);
-}
+	free(curr);
+	return (buffer); }
