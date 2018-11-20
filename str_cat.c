@@ -9,13 +9,23 @@
  */
 char *str_cat(char *dest, char *src)
 {
-	int destlen, srclen;
+	int str1, str2, size, idx = 0, idx2;
+	char *buf = NULL;
 
-	for (destlen = 0; dest[destlen] != '\0'; destlen++)
-		;
-
-	for (srclen = 0; src[srclen] != '\0'; srclen++)
-		dest[destlen + srclen] = src[srclen];
-
-	return (dest);
+	str1 = str_len(src);
+	str2 = str_len(dest);
+	size = str1 + str2;
+	buf = malloc(sizeof(char) * size);
+	while (str1--)
+	{
+		buf[idx] = src[idx];
+		idx++;
+	}
+	idx2 = idx;
+	while (str2--)
+	{
+		buf[idx2] = dest[idx];
+		idx2++;
+	}
+	return (buf);
 }
