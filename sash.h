@@ -70,7 +70,7 @@ int exit_sash(void);
 int enter_nonsash(int ac, char **av, char **env);
 int enter_sash(int ac, char **av, char **env);
 
-void sighandler(void);
+void sighandler(int);
 
 /*string manipulation functions */
 int doubleptr_len(char **buf_dir, int dir_idx);
