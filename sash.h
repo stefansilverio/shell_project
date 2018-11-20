@@ -67,7 +67,7 @@ int _chdir(char **commands);
 int exit_sash(void);
 
 /* non-interactive/interactive modes */
-int enter_nonsash(int ac, char **av, char **env);
+int enter_nonsash(char **av, char **env);
 int enter_sash(int ac, char **av, char **env);
 
 void sighandler(int sig_num);

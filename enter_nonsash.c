@@ -1,19 +1,23 @@
 #include "sash.h"
 
-int enter_nonsash(int ac, char **av, char **env)
+/**
+ * enter_nonsash - Enter noninteractive mode of sash shell
+ * @av: 2D array of arguments passed to program
+ * @env: Environment to execute program in
+ *
+ * Return: Always 0
+ */
+
+int enter_nonsash(char **av, char **env)
 {
-	char *line = NULL, *path = NULL, *dir = NULL;
+	char *line = NULL, *path = NULL, *dir = NULL, *prev = NULL, *buff = NULL;
 	char **commands = NULL, **dirs = NULL;
 	blocks_s *head_s = NULL, *first_node_s = NULL;
 	blocks_d *head_d = NULL, *first_node_d = NULL;
 	int status = 1;
 	struct stat buffer;
-	char *prev = NULL, *buff = NULL;
-
-	(void)ac;
 
 	prev = getcwd(buff, 1024);
-
 	while (status)
 	{
 		line = read_line();
@@ -46,5 +50,4 @@ int enter_nonsash(int ac, char **av, char **env)
 		frees_d(first_node_d);
 		frees_s(first_node_s);
 	}
-	return (0);
-}
+	return (0); }
