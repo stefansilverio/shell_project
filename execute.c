@@ -8,7 +8,7 @@
  *
  * Return: Always 0
  */
-int _execute(char *dir, char **tokenarr, char **env) /* execute command with args */
+int _execute(char *dir, char **tokenarr, char **env) /* execute command */
 {
 	int status;
 	pid_t pid_id, wpid;
