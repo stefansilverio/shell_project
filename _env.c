@@ -1,5 +1,10 @@
 #include "sash.h"
 
+/**
+ * _env - Builtin that prints the current environment
+ *
+ * Return: Always 1
+ */
 int _env(void)
 {
 	int key = 0;
