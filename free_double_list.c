@@ -1,7 +1,7 @@
 #include "sash.h"
 
 /**
- * free_d - free all double ptrs
+ * frees_d - free all double ptrs
  * @head: next node in list
  * Return: Nothing
  */
