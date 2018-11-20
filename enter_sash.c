@@ -50,8 +50,9 @@ int enter_sash(int ac, char **av, char **env)
 	return (0);
 }
 
-void sighandler()
+void sighandler(int sig_num)
 {
+	(void)sig_num;
 	write(1, "\n", 1);
 	write(1, "$ ", 2);
 }
