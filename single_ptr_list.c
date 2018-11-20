@@ -1,6 +1,6 @@
 #include "sash.h"
 
-blocks_s *build_list_s(blocks_s *head, char* memory)
+blocks_s *build_list_s(blocks_s *head, char *memory)
 {
 	blocks_s *new_node;
 

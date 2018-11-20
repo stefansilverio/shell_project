@@ -2,12 +2,12 @@
 
 /**
  * doubleptr_len - Counts the number of characters of each string in a 2D array
- * @buf_dir: The 2D array to be counted
- * @dir_idx: The index of the current string in the 2D array
+ * @head: The 2D array to be counted
+ * @memory: The index of the current string in the 2D array
  *
  * Return: The character count of the string
  */
-blocks_d *build_list_d(blocks_d *head, char** memory)
+blocks_d *build_list_d(blocks_d *head, char **memory)
 {
 	blocks_d *new_node;
 
