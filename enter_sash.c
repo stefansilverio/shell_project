@@ -1,6 +1,9 @@
 #include "sash.h"
 /**
- * main - the driver function for our sash shell
+ * enter_sash - the driver function for our sash shell
+ * @ac: Count of arguments passed to standard input
+ * @av: 2D array of arguments passed to standard input
+ * @env: The environment to run the program in
  *
  * Return: Always 0
  */
@@ -47,6 +50,11 @@ int enter_sash(int ac, char **av, char **env)
 	frees_d(first_node_d);
 	return (0);
 }
+
+/**
+ * sighandler - Tells the program what to do with Ctrl-C signal
+ * @sig_num: The signal number to give to the program
+ */
 
 void sighandler(int sig_num)
 {
