@@ -12,7 +12,7 @@ int enter_nonsash(int ac, char **av, char **env)
 	char *blk0 = "blk0", *blk1 = "blk1", *blk2 = "blk2", *blk3 = "blk3", *blk4 = "blk4";
 	(void)ac;
 	(void)**av;
-
+	(void)*blk0;
 	prev = getcwd(buff, 1024);
 
 	while (status)
@@ -20,8 +20,6 @@ int enter_nonsash(int ac, char **av, char **env)
 		line = read_line();
 		if (line == NULL)
 			continue;
-		head_s = build_list_s(head_s, line, blk0);
-		first_node_s = head_s;
 		commands = split_line(line, av);
 		head_d = build_list_d(head_d, commands, blk1);
 		first_node_d = head_d;
@@ -30,6 +28,7 @@ int enter_nonsash(int ac, char **av, char **env)
 		{
 			path = get_path(env);
 			head_s = build_list_s(head_s, path, blk2);
+			first_node_s = head_s;
 			if (!str_str(path, prev))
 			{
 				chdir("/home/vagrant");
@@ -44,9 +43,9 @@ int enter_nonsash(int ac, char **av, char **env)
 				chdir(prev);
 			}
 			_execute(commands[0], commands, env);
-			frees_s(first_node_s);
-			frees_d(first_node_d);
 		}
+		frees_s(first_node_s);
+		frees_d(first_node_d);
 	}
 	return (0);
 }
