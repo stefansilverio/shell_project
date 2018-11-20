@@ -1,5 +1,11 @@
 #include "sash.h"
 
+/**
+ * _chdir - Changes the directory
+ * @commands: The directory to change to. If no dir is given, chdir to home
+ *
+ * Return: Always 1
+ */
 int _chdir(char **commands)
 {
 	int status = 0;
