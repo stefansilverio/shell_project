@@ -1,5 +1,12 @@
 #include "sash.h"
 
+/**
+ * str_cat - Concatenates two strings together
+ * @dest: The string to be appended
+ * @src: The string to append to dest
+ *
+ * Return: A pointer to the concatenated string
+ */
 char *str_cat(char *dest, char *src)
 {
 	int destlen, srclen;
