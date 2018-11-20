@@ -1,9 +1,16 @@
 #include "sash.h"
 
+/**
+ * tokenize_path - Splits the PATH into individual strings/tokens
+ * @path: The path to be split up
+ *
+ * Return: Pointer to 2D array of the tokenized path
+ */
+
 char **tokenize_path(char *path)
 {
 	char *token = NULL;
-	char *delim = ":";   
+	char *delim = ":";
 	char **buf_dir = NULL;
 	int idx = 0;
 	int count = 0;
@@ -25,5 +32,5 @@ char **tokenize_path(char *path)
 	}
 	buf_dir[idx] = NULL;
 
-	return(buf_dir);
+	return (buf_dir);
 }
