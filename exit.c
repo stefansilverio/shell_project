@@ -1,8 +1,11 @@
 #include "sash.h"
 
-int exit_sash(char **tokenarr)
+/**
+ * exit_sash - Builtin that exits the shell when user enters "exit"
+ *
+ * Return: Always 0;
+ */
+int exit_sash(void)
 {
-	(void)**tokenarr;
-	write(1, "I'm leaving...connection closed\n", 32);
-	return (0);
+        return (0);
 }
