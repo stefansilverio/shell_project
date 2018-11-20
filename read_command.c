@@ -24,6 +24,6 @@ char *read_line()
 	}
 	free(str);
 	if (isatty(STDIN_FILENO))
-	    write(STDOUT_FILENO, "\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
 	_exit(0);
 }
