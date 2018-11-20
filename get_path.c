@@ -13,7 +13,8 @@ char *get_path(char **env)
 	char *buffer = NULL, *curr = NULL, *buff = NULL;
 
 	curr = getcwd(buff, 0);
-	buffer = malloc(sizeof(char) * (1024)); /* buffer size is arbitrary */
+	buffer = _calloc(1024, sizeof(char));
+/*	buffer = malloc(sizeof(char) * (1024)); */
 	if (buffer == NULL)
 		return (NULL);
 	while ((*(env[key_idx]) != 'P') && (*(env[key_idx] + 3) != 'H'))
