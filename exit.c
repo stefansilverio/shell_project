@@ -7,5 +7,5 @@
  */
 int exit_sash(void)
 {
-        return (0);
+	return (0);
 }
