@@ -1,5 +1,12 @@
 #include "sash.h"
 
+/**
+ * str_str - Finds a substring in a string
+ * @haystack: The string to be searched
+ * @needle: The substring to find
+ *
+ * Return: Pointer to the substring if found, NULL if not found
+ */
 char *str_str(char *haystack, char *needle)
 {
 	while (*haystack)
