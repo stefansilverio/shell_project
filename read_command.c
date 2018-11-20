@@ -23,6 +23,7 @@ char *read_line()
 		return (str);
 	}
 	free(str);
-	write(STDOUT_FILENO, "\n", 1);
+	if (isatty(STDIN_FILENO))
+	    write(STDOUT_FILENO, "\n", 1);
 	_exit(0);
 }

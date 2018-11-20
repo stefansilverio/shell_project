@@ -6,14 +6,15 @@ void frees_d(blocks_d *head)
 	blocks_d *tmp;
 	int idx = 0;
 
+	(void)**memory;
+
 	while (head)
 	{
-		while (head->memory[idx])
+		while (memory[idx])
 		{
 			free(memory[idx]);
 			idx++;
 		}
-		head++;
 		tmp = head;
 		head = head->next;
 		free(tmp->memory);
