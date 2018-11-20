@@ -2,10 +2,11 @@
 
 /**
  * _execute - execute each argument stored in tokenarr
+ * @dir: The command passed to the program
+ * @tokenarr: array of char pointers to each argument passed
+ * @env: The environment to execute the program in
  *
- * @tokenarr: array of char pointers
- *
- * Return: Exit status
+ * Return: Always 0
  */
 int _execute(char *dir, char **tokenarr, char **env) /* execute command with args */
 {
