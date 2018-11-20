@@ -1,5 +1,13 @@
 #include "sash.h"
 
+/**
+ * build_list_s - Build a linked list of all single pointers allocated
+ * @head: The first node of the linked list
+ * @memory: The pointer to store for future freeing
+ *
+ * Return: A pointer to the first node of the linked list
+ */
+
 blocks_s *build_list_s(blocks_s *head, char *memory)
 {
 	blocks_s *new_node;
