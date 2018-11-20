@@ -1,9 +1,11 @@
 #include "sash.h"
 
 /**
+ * run_builtin - Finds the right builtin to run
+ * @tokenarr: The builtin command passed to the shell
  *
+ * Return: Upon success, return value of executed builtin, otherwise -1
  */
-
 int run_builtin(char **tokenarr)
 {
 	int index = 0;
