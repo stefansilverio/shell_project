@@ -4,6 +4,7 @@
 In this project, we created a	simple UNIX command line interpreter called "sash". Sash prints a command prompt and waits for the user to type a command and press enter. This intepreter can handle standard commands and user-created executables as well as some builtin functions.
 
 **Entry Functions**
+
 File | Function | Description
 -----|-----|----
 main_sash.c | main_sash | Tests interactivity of sash shell
@@ -11,6 +12,7 @@ enter_sash.c | enter_sash | Enter interactive mode of sash shell
 enter_nonsash.c | enter_nonsash.c | Enter noninteractive mode of sash shell
 
 **Essential Functions**
+
 File | Function	| Description
 -----|-----|----
 read_command.c | read_line | Reads the line entered into standard input and stores it in a buffer
@@ -21,6 +23,7 @@ find_dir.c | find_dir | Finds the directory an executable is in and concatenates
 execute.c | _execute | Executes non-builtin commands
 
 **Builtin Functions**
+
 File | Function | Description
 -----|-----|----
 builtins.c | run_builtin | Looks for the right builtin function and executes it
@@ -29,6 +32,7 @@ exit.c | exit_sash | Exits the Sash shell
 chdir.c | _chdir | Changes the working directory 
 
 **String Manipulation/Counting Functions**
+
 File | Function | Description
 -----|-----|-----
 doubleptr_len | doubleptr_len | Counts the number of strings in a 2D array
@@ -38,6 +42,7 @@ str_str.c | str_str | Finds a substring in a string and returns that substring
 str_cat.c | str_cat | Concatenates two strings together
 
 **Memory Allocation and Free Functions**
+
 File | Function | Description
 -----|-----|-----
 double_ptr_list.c | double_ptr_list | Stores all allocated double pointers in a linked list
@@ -46,6 +51,7 @@ free_double_list.c | free_double_list | Frees all double pointers stored in link
 free_single_list.c | free_single_list | Frees all single pointers stored in linked list
 
 **Non-Function Files**
+
 File | Description
 -----|-----
 sash.h | Header file containing all prototype functions and structs used in this project
