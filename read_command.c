@@ -18,15 +18,11 @@ char *read_line()
 			free(str);
 			return (NULL);
 		}
-		if (length >= 2)
-		{
-			if (str[length - 1] == '\n')
-				str[length - 1] = '\0';
-		}
+
+		str[length - 1] = '\0';
 		return (str);
 	}
 	free(str);
-	if (isatty(STDIN_FILENO))
-	    printf("logout\n");
+	write(STDOUT_FILENO, "\n", 1);
 	_exit(0);
 }
