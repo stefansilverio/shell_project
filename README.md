@@ -77,5 +77,5 @@ echo "ls -l" | ./sash
 ````
 Piping echo "ls -l" into ./sash (non-interactive mode) will print the same output as entering "ls -l" in interactive mode
 
-**Authors/Collaborators**
-: Stefan Silverio & Allison Weiner
+## Authors
+`Stefan Silverio & Allison Weiner`
